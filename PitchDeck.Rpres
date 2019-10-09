@@ -1,0 +1,46 @@
+PitchDeck
+========================================================
+author: Kevin G
+date: 10/7/19
+autosize: true
+
+Overview
+========================================================
+This app allows the user to explore and model the "MPG" dataset, which containts fuel economy data from the EPA, 1985-2015.
+
+App key features:
+- Interactive hwy projections, using an xgboost model
+- Plotting tool to explore data
+
+Dataset overview
+========================================================
+
+Below is a summary of the "MPG" datast used in this app
+```{r, echo=FALSE}
+library(ggplot2)
+```
+
+```{r}
+str(mpg, vec.len = 1)
+```
+
+Understanding the model
+========================================================
+
+The app relies on an xgboost model to project highway MPGs, based on the following user-selected variables:
+- Manufacturer 
+- Displacement 
+- Model year 
+- Cylinders 
+- Transmission type  
+- Drive type 
+- Vehicle class 
+
+Plotting feature
+========================================================
+The plotting feature can be used to explore the data by plotting any of the input variables against the highway MPG response variable.
+
+#### Example:
+```{r,echo=FALSE, fig.align = "center"}
+with(mpg, plot(displ,hwy))
+```
